@@ -6,8 +6,8 @@ settings:
 
 devDependencies:
   '@sindresorhus/tsconfig':
-    specifier: ^5.0.0
-    version: 5.1.1
+    specifier: ^6.0.0
+    version: 6.0.0
   '@types/chai':
     specifier: ^4.3.16
     version: 4.3.16
@@ -548,8 +548,8 @@ packages:
     resolution: {integrity: sha512-+Fj43pSMwJs4KRrH/938Uf+uAELIgVBmQzg/q1YG10djyfA3TnrU8N8XzqCh/okZdszqBQTZf96idMfE5lnwTA==}
     dev: true
 
-  /@sindresorhus/tsconfig@5.1.1:
-    resolution: {integrity: sha512-+2oF5II0d+0qKykD4GoM6hak0fpBgBMlQjpMF/xKReztc9MTMeldESdbhHo0rI/Iq3cEuhPy4/RStYbVFtWfog==}
+  /@sindresorhus/tsconfig@6.0.0:
+    resolution: {integrity: sha512-+fUdfuDd/7O2OZ9/UvJy76IEWn2Tpvm2l+rwUoS2Yz4jCUTSNOQQv2PLWrwekt8cPLwHmpHaBpay34bkBmVl2Q==}
     engines: {node: '>=18'}
     dev: true
 
