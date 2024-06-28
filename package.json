@@ -42,7 +42,7 @@
     "prepublishOnly": "pnpm test && pnpm lint && pnpm format:check && pnpm build"
   },
   "devDependencies": {
-    "@sindresorhus/tsconfig": "^5.0.0",
+    "@sindresorhus/tsconfig": "^6.0.0",
     "@types/chai": "^4.3.16",
     "@types/mocha": "^10.0.7",
     "@types/node": "^20.14.9",
@@ -50,11 +50,10 @@
     "chai": "^5.1.1",
     "dotenv": "^16.4.5",
     "eslint": "^8.57.0",
-    "mocha": "^10.5.1",
+    "mocha": "^10.5.2",
     "prettier": "^3.3.2",
-    "tsd": "^0.31.1",
     "tsup": "^8.1.0",
-    "tsx": "^4.15.7",
+    "tsx": "^4.15.8",
     "typescript": "^5.5.2"
   },
   "private": false,
