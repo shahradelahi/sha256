@@ -1,6 +1,6 @@
 {
   "name": "@se-oss/sha256",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "description": "A JavaScript library providing utilities for SHA-256 and HMAC-SHA-256 hashing.",
   "author": "Shahrad Elahi <shahrad@litehex.com> (https://github.com/shahradelahi)",
   "license": "MIT",
