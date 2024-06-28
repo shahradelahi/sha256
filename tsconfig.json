@@ -1,0 +1,12 @@
+{
+  "$schema": "https://json.schemastore.org/tsconfig",
+  "extends": "@sindresorhus/tsconfig",
+  "compilerOptions": {
+    "noUncheckedIndexedAccess": false,
+    "moduleResolution": "nodenext",
+    "target": "esnext",
+    "outDir": "dist"
+  },
+  "include": ["**/*.ts"],
+  "exclude": ["node_modules", "dist"]
+}

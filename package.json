@@ -1,0 +1,60 @@
+{
+  "name": "@se-oss/sha256",
+  "version": "0.0.0",
+  "description": "A pure JavaScript package providing utilities for SHA-256 and HMAC-SHA-256 hashing.",
+  "author": "Shahrad Elahi <shahrad@litehex.com> (https://github.com/shahradelahi)",
+  "license": "MIT",
+  "repository": "github:shahradelahi/sha256",
+  "homepage": "https://github.com/shahradelahi/sha256#readme",
+  "keywords": [
+    "hashing",
+    "SHA-256",
+    "HMAC-SHA-256",
+    "JavaScript",
+    "crypto",
+    "edge-runtime",
+    "browser",
+    "Node.js"
+  ],
+  "type": "module",
+  "main": "dist/index.cjs",
+  "module": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "exports": {
+    ".": {
+      "import": "./dist/index.js",
+      "require": "./dist/index.cjs",
+      "types": "./dist/index.d.ts"
+    }
+  },
+  "files": [
+    "dist/**"
+  ],
+  "packageManager": "pnpm@8.15.7",
+  "scripts": {
+    "build": "tsup && tsup --dts-only --format esm",
+    "test": "mocha \"**/*.test.ts\"",
+    "typecheck": "tsc --noEmit",
+    "lint": "pnpm typecheck && eslint .",
+    "lint:fix": "eslint --fix .",
+    "format:check": "prettier --check .",
+    "format": "prettier --write .",
+    "prepublishOnly": "pnpm test && pnpm lint && pnpm format:check && pnpm build"
+  },
+  "devDependencies": {
+    "@sindresorhus/tsconfig": "^5.0.0",
+    "@types/chai": "^4.3.16",
+    "@types/mocha": "^10.0.7",
+    "@types/node": "^20.14.9",
+    "@typescript-eslint/eslint-plugin": "^7.14.1",
+    "chai": "^5.1.1",
+    "dotenv": "^16.4.5",
+    "eslint": "^8.57.0",
+    "mocha": "^10.5.1",
+    "prettier": "^3.3.2",
+    "tsd": "^0.31.1",
+    "tsup": "^8.1.0",
+    "tsx": "^4.15.7",
+    "typescript": "^5.5.2"
+  }
+}
