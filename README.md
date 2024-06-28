@@ -1,6 +1,6 @@
 # sha256
 
-A lightweight and pure JavaScript library providing utilities for SHA-256 and HMAC-SHA-256 hashing. This library is designed to work seamlessly in any environments, offering efficient and straightforward functions for cryptographic hashing.
+A lightweight and JavaScript library providing utilities for SHA-256 and HMAC-SHA-256 hashing. This library is designed to work seamlessly in any runtime, offering efficient and straightforward functions for cryptographic hashing.
 
 ## Installation
 
