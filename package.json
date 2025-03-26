@@ -1,6 +1,6 @@
 {
   "name": "@se-oss/sha256",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Lightweight JavaScript utilities for SHA-256 and HMAC-SHA-256 hashing, compatible with any JS runtime.",
   "keywords": [
     "hashing",
