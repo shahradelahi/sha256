@@ -21,11 +21,10 @@ it('Performance', async () => {
     .add('@se-oss/sha256', () => {
       sha256(sample);
     })
-    .add('node:crypto', async () => {
+    .add('node:crypto', () => {
       createHash('sha256').update(sample).digest('hex');
     });
 
-  await bench.warmup();
   await bench.run();
 
   // eslint-disable-next-line no-console

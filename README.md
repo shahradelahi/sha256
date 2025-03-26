@@ -21,7 +21,7 @@ declare function timeSafeCompare(a: string, b: string): boolean;
 ## Examples
 
 ```typescript
-import { sha256, hmacSha256, timeSafeCompare } from '@se-oss/sha256';
+import { hmacSha256, sha256, timeSafeCompare } from '@se-oss/sha256';
 
 // Hashing a string
 const hash = sha256('Hello, world!');
