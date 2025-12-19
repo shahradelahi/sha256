@@ -58,7 +58,7 @@
     "tsx": "^4.19.3",
     "typescript": "^5.8.2"
   },
-  "packageManager": "pnpm@9.15.9",
+  "packageManager": "pnpm@10.26.1",
   "publishConfig": {
     "access": "public",
     "provenance": true
