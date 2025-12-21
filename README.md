@@ -24,6 +24,23 @@ A JavaScript library that provides utilities for `SHA-256` and `HMAC-SHA-256` ha
 npm i @se-oss/sha256
 ```
 
+<details>
+<summary>Install using your favorite package manager</summary>
+
+**pnpm**
+
+```bash
+pnpm install @se-oss/sha256
+```
+
+**yarn**
+
+```bash
+yarn add @se-oss/sha256
+```
+
+</details>
+
 ## 📖 Usage
 
 ```typescript
