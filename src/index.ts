@@ -1,4 +1,4 @@
-type BinaryLike = string | Uint8Array | Buffer;
+import type { BinaryLike } from './typings';
 
 /**
  * Class representing a SHA-256 hash helper.
@@ -273,3 +273,5 @@ export function timeSafeCompare(a: string, b: string): boolean {
 
   return bufferEqual(ah, bh) && a === b;
 }
+
+export type * from './typings';

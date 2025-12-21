@@ -19,20 +19,22 @@
   "type": "module",
   "exports": {
     ".": {
+      "node": {
+        "import": "./dist/node.js",
+        "default": "./dist/node.cjs"
+      },
+      "types": "./dist/index.d.ts",
       "import": "./dist/index.js",
       "default": "./dist/index.cjs"
     }
   },
-  "main": "dist/index.cjs",
-  "module": "dist/index.js",
-  "types": "dist/index.d.ts",
   "files": [
     "dist/**",
     "!**/*.d.cts"
   ],
   "scripts": {
     "bench": "vitest bench --run",
-    "build": "tsup && tsup --dts-only --format esm",
+    "build": "tsup && tsup --dts-only --format esm src/index.ts",
     "clean": "git clean -dfx node_modules dist .tsbuildinfo",
     "format": "prettier --write .",
     "format:check": "prettier --check .",

@@ -3,14 +3,11 @@
 [![CI](https://github.com/shahradelahi/sha256/actions/workflows/ci.yml/badge.svg)](https://github.com/shahradelahi/sha256/actions/workflows/ci.yml)
 [![NPM Version](https://img.shields.io/npm/v/@se-oss/sha256.svg)](https://www.npmjs.com/package/@se-oss/sha256)
 [![MIT License](https://img.shields.io/badge/License-MIT-blue.svg?style=flat)](/LICENSE)
+![npm bundle size](https://img.shields.io/bundlephobia/minzip/@se-oss/sha256)
 [![Install Size](https://packagephobia.com/badge?p=@se-oss/sha256)](https://packagephobia.com/result?p=@se-oss/sha256)
 ![Edge Runtime Compatible](https://img.shields.io/badge/edge--runtime-%E2%9C%94%20compatible-black)
 
-A lightweight JavaScript library that provides utilities for `SHA-256` and `HMAC-SHA-256` hashing. This library is designed to work seamlessly in any JavaScript runtime, offering efficient and straightforward functions for cryptographic hashing.
-
-> [!WARNING]
->
-> This library is noticeably slower than native modules such as [`node:crypto`](https://nodejs.org/api/crypto.html) and [WebCrypto](https://developer.mozilla.org/en-US/docs/Web/API/Web_Crypto_API). Use this library only when you cannot use WebCrypto because its operations are asynchronous and `node:crypto` is not available.
+A JavaScript library that provides utilities for `SHA-256` and `HMAC-SHA-256` hashing. This library is designed to work seamlessly in any JavaScript runtime, offering efficient and straightforward functions for cryptographic hashing.
 
 ---
 
