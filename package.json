@@ -23,11 +23,13 @@
         "import": "./dist/node.js",
         "default": "./dist/node.cjs"
       },
-      "types": "./dist/index.d.ts",
       "import": "./dist/index.js",
       "default": "./dist/index.cjs"
     }
   },
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
   "files": [
     "dist/**",
     "!**/*.d.cts"
