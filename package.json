@@ -27,36 +27,35 @@
   "module": "dist/index.js",
   "types": "dist/index.d.ts",
   "files": [
-    "dist/**"
+    "dist/**",
+    "!**/*.d.cts"
   ],
   "scripts": {
+    "bench": "vitest bench --run",
     "build": "tsup && tsup --dts-only --format esm",
+    "clean": "git clean -dfx node_modules dist .tsbuildinfo",
     "format": "prettier --write .",
     "format:check": "prettier --check .",
     "lint": "pnpm typecheck && eslint .",
     "lint:fix": "eslint --fix .",
-    "prepublishOnly": "pnpm test && pnpm lint && pnpm format:check && pnpm build",
-    "test": "mocha \"**/*.test.ts\"",
+    "prepublishOnly": "pnpm build && pnpm lint && pnpm test && pnpm format:check",
+    "test": "vitest --run",
     "typecheck": "tsc --noEmit"
   },
   "prettier": "@shahrad/prettier-config",
   "devDependencies": {
+    "@edge-runtime/vm": "^5.0.0",
     "@shahrad/eslint-config": "^1.0.0",
     "@shahrad/prettier-config": "^1.2.2",
     "@shahrad/tsconfig": "^1.2.0",
-    "@types/chai": "^5.2.1",
-    "@types/mocha": "^10.0.10",
     "@types/node": "^22.13.13",
-    "chai": "^5.2.0",
-    "dotenv": "^16.4.7",
     "eslint": "^9.23.0",
     "globals": "^16.0.0",
-    "mocha": "^11.1.0",
     "prettier": "^3.5.3",
-    "tinybench": "^4.0.1",
     "tsup": "^8.4.0",
     "tsx": "^4.19.3",
-    "typescript": "^5.8.2"
+    "typescript": "^5.8.2",
+    "vitest": "^4.0.16"
   },
   "packageManager": "pnpm@9.15.9",
   "publishConfig": {
