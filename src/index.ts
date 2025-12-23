@@ -1,10 +1,10 @@
 import type { BinaryLike } from './typings';
 
 /**
- * Class representing a SHA-256 hash helper.
+ * Class representing a SHA-256 hash.
  * This class provides methods to hash data using the SHA-256 algorithm.
  */
-class Helper {
+export class Sha256Hash {
   #h0 = 0x6a09e667;
   #h1 = 0xbb67ae85;
   #h2 = 0x3c6ef372;
@@ -80,21 +80,12 @@ class Helper {
   }
 
   /**
-   * Creates a Helper instance.
-   * @param {BinaryLike} [key] - If provided, it's added to the hash.
-   */
-  static from(key: BinaryLike): Helper {
-    const h = new Helper();
-    h.add(key);
-    return h;
-  }
-
-  /**
    * Adds data to the hash.
    *
    * @param {BinaryLike} data - The data to add to the hash.
+   * @returns {this} The Sha256Hash instance for chaining.
    */
-  add(data: BinaryLike): void {
+  update(data: BinaryLike): this {
     if (typeof data === 'string') {
       data =
         typeof TextEncoder === 'undefined' ? Buffer.from(data) : new TextEncoder().encode(data);
@@ -104,14 +95,23 @@ class Helper {
       if (this.#bp === 64) this.#process();
     }
     this.#tsz += data.length;
+    return this;
   }
 
   /**
-   * Computes and returns the hash digest as a Uint8Array.
+   * Computes and returns the hash digest.
    *
    * @returns {Uint8Array} The hash digest.
    */
-  digest(): Uint8Array {
+  digest(): Uint8Array;
+  /**
+   * Computes and returns the hash digest as a hex string.
+   *
+   * @param {string} encoding - The encoding to use. Currently only 'hex' is supported.
+   * @returns {string} The hash digest.
+   */
+  digest(encoding: 'hex'): string;
+  digest(encoding?: 'hex'): Uint8Array | string {
     this.#buf[this.#bp++] = 0x80;
     if (this.#bp == 64) this.#process();
     if (this.#bp + 8 > 64) {
@@ -161,8 +161,22 @@ class Helper {
     reply[29] = (this.#h7 >>> 16) & 255;
     reply[30] = (this.#h7 >>> 8) & 255;
     reply[31] = this.#h7 & 255;
+
+    if (encoding === 'hex') {
+      return Array.from(reply, (b) => b.toString(16).padStart(2, '0')).join('');
+    }
+
     return reply;
   }
+}
+
+/**
+ * Creates a new Sha256Hash instance.
+ *
+ * @returns {Sha256Hash} A new Sha256Hash instance.
+ */
+export function createSha256(): Sha256Hash {
+  return new Sha256Hash();
 }
 
 /**
@@ -182,7 +196,7 @@ class Helper {
  * console.log(hash2);
  */
 export function sha256(data: BinaryLike): Uint8Array {
-  return Helper.from(data).digest();
+  return createSha256().update(data).digest();
 }
 
 /**
@@ -212,19 +226,19 @@ export function hmacSha256(key: BinaryLike, message: BinaryLike): Uint8Array {
         : new TextEncoder().encode(key)
       : key;
 
-  if (key.length > 64) k = Helper.from(k).digest();
+  if (k.length > 64) k = createSha256().update(k).digest();
   const inner = new Uint8Array(64).fill(0x36);
   const outer = new Uint8Array(64).fill(0x5c);
   for (let i = 0; i < k.length; i++) {
     inner[i] ^= k[i];
     outer[i] ^= k[i];
   }
-  const p1 = new Helper(),
-    p2 = new Helper();
-  p1.add(inner);
-  p1.add(message);
-  p2.add(outer);
-  p2.add(p1.digest());
+  const p1 = createSha256(),
+    p2 = createSha256();
+  p1.update(inner);
+  p1.update(message);
+  p2.update(outer);
+  p2.update(p1.digest());
   return p2.digest();
 }
 

@@ -3,6 +3,15 @@ import { createHash, createHmac, timingSafeEqual } from 'node:crypto';
 import type { BinaryLike } from './typings';
 
 /**
+ * Creates a new SHA-256 hash.
+ *
+ * @returns {import('node:crypto').Hash} A new Hash instance.
+ */
+export function createSha256() {
+  return createHash('sha256');
+}
+
+/**
  * Computes the SHA-256 hash of the given data.
  *
  * @param {BinaryLike} data - The data to hash.
