@@ -44,7 +44,12 @@ yarn add @se-oss/sha256
 ## 📖 Usage
 
 ```typescript
-import { hmacSha256, sha256, timeSafeCompare } from '@se-oss/sha256';
+import {
+  createSha256,
+  hmacSha256,
+  sha256,
+  timeSafeCompare,
+} from '@se-oss/sha256';
 
 // Hashing a string
 const hash = sha256('Hello, world!');
@@ -54,6 +59,13 @@ console.log(hash);
 const data = new Uint8Array([1, 2, 3, 4, 5]);
 const hash2 = sha256(data);
 console.log(hash2);
+
+// Using createSha256 for streaming or hex output
+const hasher = createSha256();
+hasher.update('Hello, ');
+hasher.update('world!');
+const hexHash = hasher.digest('hex');
+console.log(hexHash);
 
 // HMAC with a string key and message
 const key = 'my-secret-key';
@@ -83,6 +95,13 @@ For all configuration options, please see [the API docs](https://www.jsdocs.io/p
 ```typescript
 type BinaryLike = string | Uint8Array | Buffer;
 
+class Sha256Hash {
+  update(data: BinaryLike): this;
+  digest(): Uint8Array;
+  digest(encoding: 'hex'): string;
+}
+
+function createSha256(): Sha256Hash;
 function sha256(data: BinaryLike): Uint8Array;
 function hmacSha256(key: BinaryLike, message: BinaryLike): Uint8Array;
 function timeSafeCompare(a: string, b: string): boolean;
