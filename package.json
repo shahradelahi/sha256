@@ -51,7 +51,7 @@
     "@edge-runtime/vm": "^5.0.0",
     "@shahrad/eslint-config": "^1.0.1",
     "@shahrad/prettier-config": "^1.2.2",
-    "@shahrad/tsconfig": "^1.2.0",
+    "@shahrad/tsconfig": "^2.0.0",
     "@types/node": "^25.0.3",
     "eslint": "^9.39.2",
     "globals": "^16.5.0",
